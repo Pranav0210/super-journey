@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  supply-app:
+    build:
+      context: .
+      args:
+        - VITE_API_URL='http://localhost:3001'
+        - VITE_APP_TYPE='supply'
+    ports:
+      - "8080:4173"
+    container_name: supply-app
+
+  demand-app:
+    build:
+      context: .
+      args:
+        - VITE_API_URL='http://localhost:3001'
+        - VITE_APP_TYPE='demand'
+    ports:
+      - "8081:4173"
+    container_name: demand-app
